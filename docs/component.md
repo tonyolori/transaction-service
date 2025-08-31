@@ -3,16 +3,16 @@
 ```mermaid
 flowchart TB
     subgraph TransactionService [Transaction Service]
-        API[REST Controllers\n(TransactionController)]
-        gRPC[gRPC Endpoints\n(TransactionGrpcService)]
+        API["REST Controllers (TransactionController)"]
+        gRPC["gRPC Endpoints (TransactionGrpcService)"]
 
-        CMD[Command Handlers\n(CreateTransactionHandler, ValidateLimitHandler, ...)]
-        REPO[Repositories\n(TransactionRepository, AccountRepository)]
-        SVC[Domain Services\n(TransactionValidator, FeeCalculator)]
-        EVT[Event Publisher\n(Kafka/Redis PubSub)]
+        CMD["Command Handlers (CreateTransactionHandler, ValidateLimitHandler, ...)"]
+        REPO["Repositories (TransactionRepository, AccountRepository)"]
+        SVC["Domain Services (TransactionValidator, FeeCalculator)"]
+        EVT["Event Publisher (Kafka/Redis PubSub)"]
 
-        DB[(PostgreSQL Database)]
-        CACHE[(Redis Cache)]
+        DB[("PostgreSQL Database")]
+        CACHE[("Redis Cache")]
     end
 
     %% Flow
@@ -25,10 +25,10 @@ flowchart TB
     SVC --> CACHE
 
     %% External dependencies
-    REPO --> AS[Account Service (gRPC/REST)]
-    SVC --> ALS[Transaction Limit Service (REST)]
-    CMD --> LS[Ledger Service (gRPC)]
-    EVT --> NS[Notification Service (Event Bus)]
+    REPO --> AS["Account Service (gRPC/REST)"]
+    SVC --> ALS["Transaction Limit Service (REST)"]
+    CMD --> LS["Ledger Service (gRPC)"]
+    EVT --> NS["Notification Service (Event Bus)"]
     
     classDef db fill=#f9f,stroke=#333,stroke-width=1px;
     classDef cache fill=#ff9,stroke=#333,stroke-width=1px;

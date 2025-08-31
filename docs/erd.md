@@ -11,22 +11,22 @@ Shareable access is provided via **signed, time-limited links**.
 
 ```mermaid
 erDiagram
-    %% External references (owned by other services)
-    User ||--o{ Account : "owns (ref via Account Service)"
+    %% External references
+    User ||--o{ Account : "owns (via Account Service)"
 
     %% Core domain
     Account ||--o{ Transaction : "has"
     Transaction ||--o{ Reversal : "optional reversal"
     Transaction ||--o{ TransactionAudit : "append-only audit"
-    Transaction ||--o{ SignedLink : "receipt links (ephemeral)"
+    Transaction ||--o{ SignedLink : "receipt links"
 
-    %% Statements (ad-hoc + compliance)
+    %% Statements
     Account ||--o{ StatementJob : "requests"
-    StatementJob ||--o| StatementArtifact : "produces (0..1 for ad-hoc; 1 for compliance)"
-    StatementArtifact ||--o{ SignedLink : "share links (time-limited)"
+    StatementJob ||--o| StatementArtifact : "produces"
+    StatementArtifact ||--o{ SignedLink : "share links"
 
-    %% Ledger reconciliation (reference to external system)
-    Transaction }o--|| LedgerPointer : "reconciles to (reference)"
+    %% Ledger reconciliation
+    Transaction }o--|| LedgerPointer : "reconciles to"
 
     User {
         string UserId PK
@@ -38,7 +38,7 @@ erDiagram
 
     Account {
         string AccountId PK
-        string UserId  FK
+        string UserId FK
         string AccountNumber
         string AccountType
         string Status
@@ -47,7 +47,7 @@ erDiagram
 
     Transaction {
         string TransactionId PK
-        string AccountId    FK
+        string AccountId FK
         string Type
         string Channel
         decimal Amount
@@ -56,8 +56,8 @@ erDiagram
         string Reference
         string Status
         decimal RunningBalance
-        json    Metadata
-        string  IntegrityHash
+        json Metadata
+        string IntegrityHash
         datetime CreatedAt
         datetime CompletedAt
     }
@@ -80,13 +80,13 @@ erDiagram
 
     StatementJob {
         string JobId PK
-        string AccountId  FK
-        string RequestedBy 
-        date   FromDate
-        date   ToDate
-        string Format  
+        string AccountId FK
+        string RequestedBy
+        date FromDate
+        date ToDate
+        string Format
         boolean IsCompliance
-        string Status       
+        string Status
         string FailureReason
         datetime RequestedAt
         datetime CompletedAt
@@ -95,28 +95,28 @@ erDiagram
 
     StatementArtifact {
         string ArtifactId PK
-        string JobId      FK UNIQUE
+        string JobId FK
         string StorageProvider
         string StorageKey
         string PresignedUrl
-        string MimeType 
+        string MimeType
         bigint SizeBytes
-        string Checksum 
-        boolean IsPermanent 
-        datetime ExpiresAt   
+        string Checksum
+        boolean IsPermanent
+        datetime ExpiresAt
         datetime CreatedAt
     }
 
     SignedLink {
         string LinkId PK
         string SubjectType
-        string SubjectId  
-        string TokenHash  
+        string SubjectId
+        string TokenHash
         integer MaxUses
         integer Uses
         datetime ExpiresAt
         boolean Revoked
-        string  CreatedBy
+        string CreatedBy
         datetime CreatedAt
         datetime RevokedAt
     }
