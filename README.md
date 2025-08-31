@@ -8,10 +8,11 @@ It acts as a query and reporting layer over the Account Service ledger, ensuring
 
 
 ## 🚀 Service Requirements
-- Language/Framework: .NET
-- Database: (PostgreSQL, Redis, etc.)
-- Messaging: (Kafka, RabbitMQ, gRPC, REST)
-- Other Dependencies: (External APIs, bill aggregators, payment gateways)
+- **Language/Framework**: .NET 9, ASP.NET Core
+- **Database**: PostgreSQL
+- **Cache/Queue**: Redis, Kafka
+- **Protocols**: gRPC, REST
+- **Dependencies**: Account Service, Ledger Service, Notification Service
 
 ## 🛠️ High-level Documentation
 - Handles customer bank accounts business logic
@@ -19,33 +20,26 @@ It acts as a query and reporting layer over the Account Service ledger, ensuring
 - Integrates with 3rd party APIs if any
 
 ## 📂 Code Structure
+- `TransactionService.Api` → API & gRPC endpoints
+- `TransactionService.Application` → Business logic (CQRS, MediatR handlers)
+- `TransactionService.Domain` → Core entities & aggregates
+- `TransactionService.Infrastructure` → Database (EF Core), repositories, external integrations
+- `TransactionService.Tests` → Unit & integration tests
 
-Example:
-
-```
-/src
-/controllers
-/models
-/services
-/tests
-/config
-/docs
-```
-
-## 🧩 Design Documentation
-- Pattern(s) used: e.g. Factory, Observer, Strategy
-- Key abstractions/interfaces
-- Error handling strategy
-- Logging and observability setup
+## 📜 Documentation
+- [Design Documentation](./docs/design.md)
+- [API Spec](./docs/api.md)
+- [System & Sequence Diagrams](./docs/diagrams/)
+- [Entity Relationship Diagram](./docs/diagrams/erd.md)
 
 ## 🔌 API Specification
-- gRPC proto files → `/proto`
-- REST API docs → `/docs/openapi.yaml`
+- gRPC proto definitions → [`/proto/transaction.proto`](./proto/transaction.proto)
+- REST endpoints → See [`/docs/api.md`](./docs/api.md)
 
-## 📦 Third-Party Dependencies
-- Payment Provider: Paystack / Flutterwave
-- Bill Aggregator: XYZ
-- Notification: Twilio / SendGrid
+## 📡 Deployment
+- Dockerized and deployed via Kubernetes
+- CI/CD with GitHub Actions (`.github/workflows/ci-cd.yml`)
+- Config via environment variables (see `.env.example`)
 
 ## 🧪 Testing
 - Unit tests: `npm test` / `pytest` / `dotnet test`
