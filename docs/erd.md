@@ -17,7 +17,6 @@ erDiagram
     %% Core domain
     Account ||--o{ Transaction : "has"
     Transaction ||--o{ Reversal : "optional reversal"
-    Transaction ||--o{ TransactionAudit : "append-only audit"
     Transaction ||--o{ SignedLink : "receipt links"
 
     %% Statements

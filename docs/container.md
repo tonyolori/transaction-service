@@ -30,9 +30,9 @@ flowchart TB
     TSREST --> TRS["Transfer Service"]
     TSREST --> AS["Account Service"]
 
-    classDef db fill=#f9f,stroke=#333,stroke-width=1px;
-    classDef cache fill=#ff9,stroke=#333,stroke-width=1px;
-    classDef queue fill=#9ff,stroke=#333,stroke-width=1px;
+    classDef db fill=#ff99ff,stroke=#333333,stroke-width=1px;
+    classDef cache fill=#ffff99,stroke=#333333,stroke-width=1px;
+    classDef queue fill=#99ffff,stroke=#333333,stroke-width=1px;
     class TSPG db
     class TSCache cache
     class TSQPub,TSQSub queue

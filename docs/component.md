@@ -30,9 +30,10 @@ flowchart TB
     CMD --> LS["Ledger Service (gRPC)"]
     EVT --> NS["Notification Service (Event Bus)"]
     
-    classDef db fill=#f9f,stroke=#333,stroke-width=1px;
-    classDef cache fill=#ff9,stroke=#333,stroke-width=1px;
-    classDef ext fill=#9cf,stroke=#333,stroke-width=1px;
+    %% Styles (GitHub-safe: full hex colors)
+    classDef db fill=#ff99ff,stroke=#333333,stroke-width=1px;
+    classDef cache fill=#ffff99,stroke=#333333,stroke-width=1px;
+    classDef ext fill=#99ccff,stroke=#333333,stroke-width=1px;
     class DB db
     class CACHE cache
     class AS,ALS,LS,NS ext

@@ -3,52 +3,52 @@
 ```mermaid
 flowchart TB
     %% External Clients
-    Client["Client Apps (Mobile & Web)"] -->|REST| APIGW[API Gateway]
+    Client["Client Apps (Mobile & Web)"] -->|REST| APIGW["API Gateway"]
 
     %% API Gateway Responsibilities
-    APIGW -->|REST Proxy - Auth, Rate Limit, Validation| TS[Transaction Service]
-    APIGW -->|REST Proxy| US[User Service]
-    APIGW -->|REST Proxy| KYC[KYC Service]
-    APIGW -->|REST Proxy| ALS[Transaction Limit Service]
-    APIGW -->|REST Proxy| ABS[Airtime & Bill Payment Service]
-    APIGW -->|REST Proxy| AS[Account Service]
-    APIGW -->|REST Proxy| TRS[Transfer Service]
-    APIGW -->|REST Proxy| NS[Notification Service]
+    APIGW -->|"REST Proxy - Auth, Rate Limit, Validation"| TS["Transaction Service"]
+    APIGW -->|"REST Proxy"| US["User Service"]
+    APIGW -->|"REST Proxy"| KYC["KYC Service"]
+    APIGW -->|"REST Proxy"| ALS["Transaction Limit Service"]
+    APIGW -->|"REST Proxy"| ABS["Airtime & Bill Payment Service"]
+    APIGW -->|"REST Proxy"| AS["Account Service"]
+    APIGW -->|"REST Proxy"| TRS["Transfer Service"]
+    APIGW -->|"REST Proxy"| NS["Notification Service"]
 
     %% Transaction Service Responsibilities
-    subgraph TransactionService [Transaction Service]
-        TSREST[/REST Endpoints (/transactions, /history, /statements)/]
-        TSgRPC{{gRPC APIs}}
-        TSQPub((Event Publisher))
-        TSQSub((Event Consumer))
-        TSPG[(PostgreSQL DB)]
-        TSCache[(Redis Cache)]
+    subgraph TransactionService ["Transaction Service"]
+        TSREST["REST Endpoints: /transactions, /history, /statements"]
+        TSgRPC["gRPC APIs"]
+        TSQPub["Event Publisher"]
+        TSQSub["Event Consumer"]
+        TSPG[("PostgreSQL DB")]
+        TSCache[("Redis Cache")]
     end
 
     %% API Gateway -> Transaction Service
     APIGW --> TSREST
-    TSREST -->|Writes| TSPG
-    TSREST -->|Caches queries and tokens| TSCache
+    TSREST -->|"Writes"| TSPG
+    TSREST -->|"Caches queries and tokens"| TSCache
 
     %% Transaction Service gRPC
-    LS[Ledger Service] -->|gRPC Query (transaction details)| TSgRPC
+    LS["Ledger Service"] -->|"gRPC Query (transaction details)"| TSgRPC
     TSgRPC --> LS
-    TSQSub -->|Consume LedgerEntryCommitted| LS
+    TSQSub -->|"Consume LedgerEntryCommitted"| LS
 
     %% Transaction Service Events
-    TSQPub -->|TransactionCreated| LS
-    TSQPub -->|StatementGenerated| NS
-    TSQPub -->|ReceiptGenerated| NS
+    TSQPub -->|"TransactionCreated"| LS
+    TSQPub -->|"StatementGenerated"| NS
+    TSQPub -->|"ReceiptGenerated"| NS
 
     %% Notification Service
-    NS -->|Send Email/SMS Receipts and Statements| Client
+    NS -->|"Send Email/SMS Receipts and Statements"| Client
 
     %% Account & Transfer flows
-    TSREST -->|Account Sync| AS
-    TRS -->|Transfer Ops| TSREST
+    TSREST -->|"Account Sync"| AS
+    TRS -->|"Transfer Ops"| TSREST
 
     %% Airtime/Bill Payment
-    ABS -->|3rd Party Bill Aggregator| EXTTP[External Payment/Bill APIs]
+    ABS -->|"3rd Party Bill Aggregator"| EXTTP["External Payment/Bill APIs"]
 
     %% External Payment Integrations
     TRS --> EXTTP
