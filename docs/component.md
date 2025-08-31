@@ -31,9 +31,9 @@ flowchart TB
     EVT --> NS["Notification Service (Event Bus)"]
     
     %% Styles
-    classDef db fill=violet,stroke=#333333,stroke-width=1px;      %% instead of #ff99ff
-    classDef cache fill=khaki,stroke=#333333,stroke-width=1px;    %% instead of #ffff99
-    classDef ext fill=lightblue,stroke=#333333,stroke-width=1px;  %% instead of #99ccff
+    classDef db fill:violet,stroke:#333333,stroke-width:1px;
+    classDef cache fill:khaki,stroke:#333333,stroke-width:1px;
+    classDef ext fill:lightblue,stroke:#333333,stroke-width:1px;
     class DB db
     class CACHE cache
     class AS,ALS,LS,NS ext
