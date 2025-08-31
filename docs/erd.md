@@ -40,24 +40,24 @@ erDiagram
         string AccountId PK
         string UserId  FK
         string AccountNumber
-        string AccountType      // SAVINGS, CURRENT, WALLET, etc.
-        string Status           // ACTIVE, FROZEN, CLOSED
+        string AccountType
+        string Status
         datetime CreatedAt
     }
 
     Transaction {
         string TransactionId PK
         string AccountId    FK
-        string Type         // DEBIT, CREDIT, TRANSFER, BILL_PAYMENT, POS, etc.
-        string Channel      // API, MOBILE, WEB, PARTNER, POS...
+        string Type
+        string Channel
         decimal Amount
-        string Currency     // NGN, USD...
+        string Currency
         string Narration
-        string Reference    // reconciliation ref from rails/gateway (UNIQUE)
-        string Status       // PENDING, SUCCESS, FAILED, REVERSED
-        decimal RunningBalance  // snapshot after apply (optional/derived)
-        json    Metadata        // JSONB for provider payloads
-        string  IntegrityHash   // hash over immutable fields
+        string Reference
+        string Status
+        decimal RunningBalance
+        json    Metadata
+        string  IntegrityHash
         datetime CreatedAt
         datetime CompletedAt
     }
@@ -66,63 +66,54 @@ erDiagram
         string ReversalId PK
         string TransactionId FK
         string Reason
-        string InitiatedBy     // system/user id
-        datetime CreatedAt
-    }
-
-    TransactionAudit {
-        string AuditId PK
-        string TransactionId FK
-        string Action      // CREATED, STATUS_CHANGED, REVERSED, etc.
-        json   Diff        // JSON of changed fields (no original mutation)
-        string Actor       // service/user
+        string InitiatedBy
         datetime CreatedAt
     }
 
     LedgerPointer {
         string PointerId PK
         string TransactionId FK
-        string LedgerEntryId     // id in Ledger Service
-        string LedgerVersion     // snapshot/version at post time
+        string LedgerEntryId
+        string LedgerVersion
         datetime PostedAt
     }
 
     StatementJob {
         string JobId PK
         string AccountId  FK
-        string RequestedBy       // UserId or Service Principal
+        string RequestedBy 
         date   FromDate
         date   ToDate
-        string Format            // PDF, CSV, XLSX
-        boolean IsCompliance     // true ⇒ must persist artifact
-        string Status            // QUEUED, PROCESSING, COMPLETED, FAILED
+        string Format  
+        boolean IsCompliance
+        string Status       
         string FailureReason
         datetime RequestedAt
         datetime CompletedAt
-        datetime RetentionUntil  // policy window for artifacts/records
+        datetime RetentionUntil
     }
 
     StatementArtifact {
         string ArtifactId PK
         string JobId      FK UNIQUE
-        string StorageProvider   // S3, GCS, AzureBlob
-        string StorageKey        // path/key within provider
-        string PresignedUrl      // generated on-demand (optional cache)
-        string MimeType          // application/pdf, text/csv, ...
+        string StorageProvider
+        string StorageKey
+        string PresignedUrl
+        string MimeType 
         bigint SizeBytes
-        string Checksum          // SHA256 for integrity
-        boolean IsPermanent      // true for compliance
-        datetime ExpiresAt       // ad-hoc artifact/cache expiry
+        string Checksum 
+        boolean IsPermanent 
+        datetime ExpiresAt   
         datetime CreatedAt
     }
 
     SignedLink {
         string LinkId PK
-        string SubjectType   // TRANSACTION_RECEIPT, STATEMENT_ARTIFACT
-        string SubjectId     // TransactionId or ArtifactId
-        string TokenHash     // HMAC/JWT hash (store only hash)
-        integer MaxUses      // optional: usage cap
-        integer Uses         // current uses
+        string SubjectType
+        string SubjectId  
+        string TokenHash  
+        integer MaxUses
+        integer Uses
         datetime ExpiresAt
         boolean Revoked
         string  CreatedBy

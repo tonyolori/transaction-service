@@ -3,10 +3,10 @@
 ```mermaid
 flowchart TB
     %% External Clients
-    Client[Client Apps\n(Mobile/Web)] -->|REST| APIGW[API Gateway]
+    Client[Client Apps <br/> (Mobile/Web)] -->|REST| APIGW[API Gateway]
 
     %% API Gateway Responsibilities
-    APIGW -->|REST Proxy\nAuth, Rate Limit, Validation| TS[Transaction Service]
+    APIGW -->|REST Proxy <br/> Auth, Rate Limit, Validation| TS[Transaction Service]
     APIGW -->|REST Proxy| US[User Service]
     APIGW -->|REST Proxy| KYC[KYC Service]
     APIGW -->|REST Proxy| ALS[Transaction Limit Service]
@@ -17,7 +17,7 @@ flowchart TB
 
     %% Transaction Service Responsibilities
     subgraph TransactionService [Transaction Service]
-        TSREST[/REST Endpoints\n(/transactions, /history, /statements)/]
+        TSREST[/REST Endpoints <br/> (/transactions, /history, /statements)/]
         TSgRPC{{gRPC APIs}}
         TSQPub((Event Publisher))
         TSQSub((Event Consumer))
@@ -31,7 +31,7 @@ flowchart TB
     TSREST -->|Caches queries, tokens| TSCache
 
     %% Transaction Service gRPC
-    LS[Ledger Service] -->|gRPC Query\n(transaction details)| TSgRPC
+    LS[Ledger Service] -->|gRPC Query <br/> (transaction details)| TSgRPC
     TSgRPC --> LS
     TSQSub -->|Consume LedgerEntryCommitted| LS
 
@@ -41,7 +41,7 @@ flowchart TB
     TSQPub -->|ReceiptGenerated| NS
 
     %% Notification Service
-    NS -->|Send Email/SMS\nReceipts, Statements| Client
+    NS -->|Send Email/SMS <br/> Receipts, Statements| Client
 
     %% Account & Transfer flows
     TSREST -->|Account Sync| AS
