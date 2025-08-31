@@ -30,10 +30,10 @@ flowchart TB
     CMD --> LS["Ledger Service (gRPC)"]
     EVT --> NS["Notification Service (Event Bus)"]
     
-    %% Styles (GitHub-safe: full hex colors)
-    classDef db fill=#ff99ff,stroke=#333333,stroke-width=1px;
-    classDef cache fill=#ffff99,stroke=#333333,stroke-width=1px;
-    classDef ext fill=#99ccff,stroke=#333333,stroke-width=1px;
+    %% Styles
+    classDef db fill=violet,stroke=#333333,stroke-width=1px;      %% instead of #ff99ff
+    classDef cache fill=khaki,stroke=#333333,stroke-width=1px;    %% instead of #ffff99
+    classDef ext fill=lightblue,stroke=#333333,stroke-width=1px;  %% instead of #99ccff
     class DB db
     class CACHE cache
     class AS,ALS,LS,NS ext
