@@ -1,0 +1,36 @@
+syntax = "proto3";
+package transaction;
+
+import "google/protobuf/timestamp.proto";
+
+service TransactionService {
+  rpc RecordTransaction(RecordTransactionRequest) returns (RecordTransactionResponse);
+  rpc GetTransaction(GetTransactionRequest) returns (GetTransactionResponse);
+  rpc ListTransactions(ListTransactionsRequest) returns (ListTransactionsResponse);
+  rpc GenerateReceipt(GenerateReceiptRequest) returns (GenerateReceiptResponse);
+  rpc GenerateStatement(GenerateStatementRequest) returns (GenerateStatementResponse);
+  rpc CreateShareableLink(CreateShareableLinkRequest) returns (CreateShareableLinkResponse);
+  rpc GetJobStatus(GetJobStatusRequest) returns (GetJobStatusResponse);
+}
+
+message RecordTransactionRequest { string ledger_event_id = 1; string account_id = 2; double amount = 3; string currency = 4; string reference = 5; string narration = 6; }
+message RecordTransactionResponse { string id = 1; }
+
+message GetTransactionRequest { string id = 1; }
+message GetTransactionResponse { string id = 1; string account_id = 2; double amount = 3; string currency = 4; string status = 5; google.protobuf.Timestamp created_at = 6; }
+
+message ListTransactionsRequest { string account_id = 1; string cursor = 2; int32 limit = 3; }
+message TransactionItem { string id = 1; string reference = 2; double amount = 3; string currency = 4; string type = 5; string status = 6; google.protobuf.Timestamp created_at = 7; }
+message ListTransactionsResponse { repeated TransactionItem items = 1; string next_cursor = 2; }
+
+message GenerateReceiptRequest { string transaction_id = 1; string format = 2; }
+message GenerateReceiptResponse { bytes data = 1; string temp_url = 2; }
+
+message GenerateStatementRequest { string account_id = 1; string date_from = 2; string date_to = 3; string format = 4; }
+message GenerateStatementResponse { string job_id = 1; string temp_url = 2; }
+
+message CreateShareableLinkRequest { string transaction_id = 1; int32 expires_seconds = 2; }
+message CreateShareableLinkResponse { string link = 1; string expires_at = 2; }
+
+message GetJobStatusRequest { string job_id = 1; }
+message GetJobStatusResponse { string job_id = 1; string status = 2; string result_url = 3; }
