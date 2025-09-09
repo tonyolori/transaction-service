@@ -1,0 +1,31 @@
+openapi: 3.0.3
+info:
+  title: Transaction Service (Gateway-facing)
+  version: 1.0.0
+paths:
+  /api/v1/transactions/{id}:
+    get:
+      summary: Get transaction
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: transaction
+  /api/v1/transactions/{id}/receipt/share:
+    post:
+      summary: Create shareable receipt link
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expiresInSeconds:
+                  type: integer
+      responses:
+        '200':
+          description: link created

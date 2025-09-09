@@ -1,0 +1,12 @@
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/bin/Debug/net9.0/TransactionService.Grpc.deps.json
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/bin/Debug/net9.0/TransactionService.Grpc.dll
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/bin/Debug/net9.0/TransactionService.Grpc.pdb
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/obj/Debug/net9.0/TransactionService.Grpc.GeneratedMSBuildEditorConfig.editorconfig
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/obj/Debug/net9.0/TransactionService.Grpc.AssemblyInfoInputs.cache
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/obj/Debug/net9.0/TransactionService.Grpc.AssemblyInfo.cs
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/obj/Debug/net9.0/TransactionService.Grpc.csproj.CoreCompileInputs.cache
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/obj/Debug/net9.0/TransactionService.Grpc.sourcelink.json
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/obj/Debug/net9.0/TransactionService.Grpc.dll
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/obj/Debug/net9.0/refint/TransactionService.Grpc.dll
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/obj/Debug/net9.0/TransactionService.Grpc.pdb
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Grpc/obj/Debug/net9.0/ref/TransactionService.Grpc.dll

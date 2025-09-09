@@ -1,0 +1,13 @@
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/bin/Debug/net9.0/TransactionService.Infrastructure.deps.json
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/bin/Debug/net9.0/TransactionService.Infrastructure.dll
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/bin/Debug/net9.0/TransactionService.Infrastructure.pdb
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/Debug/net9.0/TransactionService.Infrastructure.csproj.AssemblyReference.cache
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/Debug/net9.0/TransactionService.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/Debug/net9.0/TransactionService.Infrastructure.AssemblyInfoInputs.cache
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/Debug/net9.0/TransactionService.Infrastructure.AssemblyInfo.cs
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/Debug/net9.0/TransactionService.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/Debug/net9.0/TransactionService.Infrastructure.sourcelink.json
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/Debug/net9.0/TransactionService.Infrastructure.dll
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/Debug/net9.0/refint/TransactionService.Infrastructure.dll
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/Debug/net9.0/TransactionService.Infrastructure.pdb
+/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/Debug/net9.0/ref/TransactionService.Infrastructure.dll

@@ -1,0 +1,6 @@
+# Ignore local HTTP request files
+*.http
+
+# Ignore build outputs
+bin/
+obj/
