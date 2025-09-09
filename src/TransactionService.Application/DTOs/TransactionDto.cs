@@ -7,7 +7,7 @@ namespace TransactionService.Application.DTOs
         public decimal Amount { get; set; }
         public string Currency { get; set; }
         public string Status { get; set; }
-        public DateTime CreatedAt { get; set; }
+        
 
         public TransactionDto() { }
 
@@ -18,7 +18,7 @@ namespace TransactionService.Application.DTOs
             Amount = amount;
             Currency = currency;
             Status = status;
-            CreatedAt = createdAt;
+            
         }
     }
 }
