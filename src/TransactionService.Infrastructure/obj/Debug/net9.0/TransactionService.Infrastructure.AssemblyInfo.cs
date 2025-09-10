@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TransactionService.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d72f74e57ad36688784470042e03e1f71e37bad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed32f87e8b21ff5eb4efe19ada64cf54ac6b5f37")]
 [assembly: System.Reflection.AssemblyProductAttribute("TransactionService.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TransactionService.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

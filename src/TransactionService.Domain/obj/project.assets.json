@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "/Users/deyanju/.nuget/packages/": {}
+    "/Users/user/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Domain/TransactionService.Domain.csproj",
+      "projectUniqueName": "/Users/user/Documents/GitHub/transaction-service/src/TransactionService.Domain/TransactionService.Domain.csproj",
       "projectName": "TransactionService.Domain",
-      "projectPath": "/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Domain/TransactionService.Domain.csproj",
-      "packagesPath": "/Users/deyanju/.nuget/packages/",
-      "outputPath": "/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Domain/obj/",
+      "projectPath": "/Users/user/Documents/GitHub/transaction-service/src/TransactionService.Domain/TransactionService.Domain.csproj",
+      "packagesPath": "/Users/user/.nuget/packages/",
+      "outputPath": "/Users/user/Documents/GitHub/transaction-service/src/TransactionService.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/deyanju/.nuget/NuGet/NuGet.Config"
+        "/Users/user/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -44,7 +44,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -8,7 +8,14 @@ public class GetTransactionHandler : IRequestHandler<GetTransactionQuery, Transa
     public Task<TransactionDto?> Handle(GetTransactionQuery req, CancellationToken ct)
     {
         // TODO: wire up to repository; return fake for scaffold
-        var dto = new TransactionDto(req.Id, "acc-123", 5000m, "NGN", "success", DateTime.UtcNow);
+        var dto = new TransactionDto{
+                Id = req.Id,
+                AccountId = "acc-123",
+                Amount = 5000m,
+                Currency = "NGN",
+                Status = "success",
+                CreatedAt = DateTime.UtcNow
+            };
         return Task.FromResult<TransactionDto?>(dto);
     }
 }

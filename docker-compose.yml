@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: src/TransactionService.Api/Dockerfile
+    container_name: transaction-api
+    ports:
+      - "5000:5000"
+    depends_on:
+      - worker
+      - grpc
+
+  worker:
+    build:
+      context: .
+      dockerfile: src/TransactionService.Worker/Dockerfile
+    container_name: transaction-worker
+
+  grpc:
+    build:
+      context: .
+      dockerfile: src/TransactionService.Grpc/Dockerfile
+    container_name: transaction-grpc
+    ports:
+      - "6000:6000"

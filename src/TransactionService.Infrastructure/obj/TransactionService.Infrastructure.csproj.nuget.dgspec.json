@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/TransactionService.Infrastructure.csproj": {}
+    "/Users/user/Documents/GitHub/transaction-service/src/TransactionService.Infrastructure/TransactionService.Infrastructure.csproj": {}
   },
   "projects": {
-    "/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/TransactionService.Infrastructure.csproj": {
+    "/Users/user/Documents/GitHub/transaction-service/src/TransactionService.Infrastructure/TransactionService.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/TransactionService.Infrastructure.csproj",
+        "projectUniqueName": "/Users/user/Documents/GitHub/transaction-service/src/TransactionService.Infrastructure/TransactionService.Infrastructure.csproj",
         "projectName": "TransactionService.Infrastructure",
-        "projectPath": "/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/TransactionService.Infrastructure.csproj",
-        "packagesPath": "/Users/deyanju/.nuget/packages/",
-        "outputPath": "/Users/deyanju/Documents/Documents - Deyanju’s MacBook Pro/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/",
+        "projectPath": "/Users/user/Documents/GitHub/transaction-service/src/TransactionService.Infrastructure/TransactionService.Infrastructure.csproj",
+        "packagesPath": "/Users/user/.nuget/packages/",
+        "outputPath": "/Users/user/Documents/GitHub/transaction-service/src/TransactionService.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/deyanju/.nuget/NuGet/NuGet.Config"
+          "/Users/user/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -69,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -20,9 +20,11 @@ It acts as a query and reporting layer over the Account Service ledger, ensuring
 - Integrates with 3rd party APIs if any
 
 ## 📂 Code Structure
-- `TransactionService.Api` → API & gRPC endpoints
+- `TransactionService.Api` → API endpoints
+- `TransactionService.Grpc` → gRPC endpoints
 - `TransactionService.Application` → Business logic (CQRS, MediatR handlers)
 - `TransactionService.Domain` → Core entities & aggregates
+- `TransactionService.Worker` → Background workers and RabbitMQ/Kafka set up
 - `TransactionService.Infrastructure` → Database (EF Core), repositories, external integrations
 - `TransactionService.Tests` → Unit & integration tests
 
@@ -42,15 +44,18 @@ It acts as a query and reporting layer over the Account Service ledger, ensuring
 - Config via environment variables (see `.env.example`)
 
 ## 🧪 Testing
-- Unit tests: `npm test` / `pytest` / `dotnet test`
+- Unit tests: `make test`
 - Integration tests: details
 - CI/CD pipeline: GitHub Actions / GitLab CI
 
 ## ▶️ Running Locally
 ```bash
 # Install dependencies
-npm install
+make build
 
 # Start dev server
-npm run dev
+make run-all
+
+# Start watch server
+make watch-all
 ```

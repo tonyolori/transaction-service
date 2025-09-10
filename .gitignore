@@ -4,3 +4,5 @@
 # Ignore build outputs
 bin/
 obj/
+logs/
+TestResults/

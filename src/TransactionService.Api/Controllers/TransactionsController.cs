@@ -5,10 +5,9 @@ using TransactionService.Application.Queries;
 
 [ApiController]
 [Route("api/v1/transactions")]
-public class TransactionsController : ControllerBase
+public class TransactionsController(IMediator mediator) : ControllerBase
 {
-    private readonly IMediator _mediator;
-    public TransactionsController(IMediator mediator) => _mediator = mediator;
+    private readonly IMediator _mediator = mediator;
 
     [HttpGet("/{id}")]
     public async Task<IActionResult> GetTransaction([FromRoute] Guid id)
