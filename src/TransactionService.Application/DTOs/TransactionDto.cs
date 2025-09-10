@@ -2,11 +2,13 @@ namespace TransactionService.Application.DTOs
 {
     public class TransactionDto
     {
-        public Guid Id { get; set; }
-        public string AccountId { get; set; }
-        public decimal Amount { get; set; }
-        public string Currency { get; set; }
-        public string Status { get; set; }
+        public Guid? Id { get; set; }
+        public required string AccountId { get; set; }
+        public required decimal Amount { get; set; }
+        public required string Currency { get; set; }
+        public required string Status { get; set; }
+
+        public DateTime? CreatedAt;
         
 
         public TransactionDto() { }
@@ -18,7 +20,7 @@ namespace TransactionService.Application.DTOs
             Amount = amount;
             Currency = currency;
             Status = status;
-            
+            CreatedAt = createdAt;
         }
     }
 }

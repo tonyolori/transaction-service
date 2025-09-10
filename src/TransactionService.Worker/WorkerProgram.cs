@@ -4,9 +4,9 @@ using TransactionService.Infrastructure.Signing;
 
 namespace TransactionService.Worker;
 
-public class Program
+public class WorkerProgram
 {
-    public static async Task Main(string[] args)
+    public static async Task RunWorkerProgram()
     {
         var queue = new InMemoryQueue();
         var docGen = new PdfDocumentGenerator();
