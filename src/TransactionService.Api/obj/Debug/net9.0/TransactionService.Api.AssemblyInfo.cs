@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TransactionService.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed32f87e8b21ff5eb4efe19ada64cf54ac6b5f37")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b423bef9f42b9628855552bfc918ddaa1f5b6c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("TransactionService.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TransactionService.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
