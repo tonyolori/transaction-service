@@ -1,4 +1,5 @@
 ﻿using TransactionService.Application.DTOs;
+using TransactionService.Domain.Entities;
 using Xunit;
 
 namespace TransactionService.Application.Tests.DTOs
@@ -8,20 +9,25 @@ namespace TransactionService.Application.Tests.DTOs
         [Fact]
         public void Can_Create_TransactionDto_With_Required_Properties()
         {
+            var id = Guid.NewGuid();
             // Arrange
             var dto = new TransactionDto
             {
-                AccountId = "12345",
-                Currency = "USD",
-                Status = "Pending",
-                Amount = 20000m
+                Id = id,
+                AccountId = Guid.NewGuid(),
+                DestinationAccountId = Guid.NewGuid(),
+                Amount = 5000m,
+                OpeningBalance = 10000m,
+                Currency = TransactionCurrency.NGN,
+                Status = TransactionStatus.PENDING,
+                CreatedAt = DateTime.UtcNow
             };
 
             // Act & Assert
-            Assert.Equal("12345", dto.AccountId);
-            Assert.Equal("USD", dto.Currency);
-            Assert.Equal("Pending", dto.Status);
-            Assert.Equal(20000m, dto.Amount);
+            Assert.Equal(id, dto.Id);
+            Assert.Equal(TransactionCurrency.NGN, dto.Currency);
+            Assert.Equal(TransactionStatus.PENDING, dto.Status);
+            Assert.Equal(5000m, dto.Amount);
         }
     }
 }

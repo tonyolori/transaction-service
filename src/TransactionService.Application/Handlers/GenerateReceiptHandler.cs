@@ -1,18 +1,17 @@
-namespace TransactionService.Application.Handlers;
-
-
 using MediatR;
 using TransactionService.Infrastructure.DocGen;
+using TransactionService.Application.Commands;
 
-public record GenerateReceiptCommand(Guid TransactionId, string Format) : IRequest<byte[]>;
-
-public class GenerateReceiptHandler : IRequestHandler<GenerateReceiptCommand, byte[]>
+namespace TransactionService.Application.Handlers
 {
-    private readonly IDocumentGenerator _docGen;
-    public GenerateReceiptHandler(IDocumentGenerator docGen) => _docGen = docGen;
-    public async Task<byte[]> Handle(GenerateReceiptCommand req, CancellationToken ct)
+    public class GenerateReceiptHandler(IDocumentGenerator docGen) : IRequestHandler<GenerateReceiptCommand, byte[]>
     {
-        var bytes = await _docGen.GenerateReceiptAsync(req.TransactionId, req.Format);
-        return bytes;
+        private readonly IDocumentGenerator _docGen = docGen;
+
+        public async Task<byte[]> Handle(GenerateReceiptCommand req, CancellationToken ct)
+        {
+            var bytes = await _docGen.GenerateReceiptAsync(req.TransactionId, req.Format);
+            return bytes;
+        }
     }
 }

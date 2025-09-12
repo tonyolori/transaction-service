@@ -1,21 +1,27 @@
-namespace TransactionService.Application.Handlers;
-
 using MediatR;
 using TransactionService.Application.Queries;
 using TransactionService.Application.DTOs;
-public class GetTransactionHandler : IRequestHandler<GetTransactionQuery, TransactionDto?>
+using TransactionService.Domain.Entities;
+
+namespace TransactionService.Application.Handlers
 {
-    public Task<TransactionDto?> Handle(GetTransactionQuery req, CancellationToken ct)
+    public class GetTransactionHandler : IRequestHandler<GetTransactionQuery, TransactionDto?>
     {
-        // TODO: wire up to repository; return fake for scaffold
-        var dto = new TransactionDto{
+        public Task<TransactionDto?> Handle(GetTransactionQuery req, CancellationToken ct)
+        {
+            // TODO: wire up to repository; return fake for scaffold
+            var dto = new TransactionDto
+            {
                 Id = req.Id,
-                AccountId = "acc-123",
+                AccountId = Guid.NewGuid(),
+                DestinationAccountId = Guid.NewGuid(),
                 Amount = 5000m,
-                Currency = "NGN",
-                Status = "success",
+                OpeningBalance = 10000m,
+                Currency = TransactionCurrency.NGN,
+                Status = TransactionStatus.SUCCESS,
                 CreatedAt = DateTime.UtcNow
             };
-        return Task.FromResult<TransactionDto?>(dto);
+            return Task.FromResult<TransactionDto?>(dto);
+        }
     }
 }

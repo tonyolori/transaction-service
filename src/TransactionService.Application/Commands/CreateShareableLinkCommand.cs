@@ -1,5 +1,7 @@
-namespace TransactionService.Application.Commands;
-
+using System;
 using MediatR;
 
-public record CreateShareableLinkCommand(Guid TransactionId, int ExpiresInSeconds) : IRequest<string>;
+namespace TransactionService.Application.Commands
+{
+    public record CreateShareableLinkCommand(Guid TransactionId, int ExpiresInSeconds) : IRequest<string>; 
+}
