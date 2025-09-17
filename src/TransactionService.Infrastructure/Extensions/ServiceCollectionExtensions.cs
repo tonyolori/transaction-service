@@ -39,8 +39,8 @@ namespace TransactionService.Infrastructure.Extensions
             services.AddScoped<ITransactionRepository, TransactionRepository>();
             services.AddTransient<ITransactionFactory, TransactionFactory>();
 
-            // Add health checks
-            services.AddHealthChecks().AddCheck<RabbitMqHealthCheck>("rabbitmq");
+            // Add health checks (skip RabbitMQ for development)
+            // services.AddHealthChecks().AddCheck<RabbitMqHealthCheck>("rabbitmq");
 
             return services;
         }

@@ -8,6 +8,11 @@ using TransactionService.Grpc;
 using TransactionService.Application.Handlers;
 using TransactionService.Infrastructure.Extensions;
 using TransactionService.Infrastructure.Data;
+using TransactionService.Infrastructure.Messaging;
+using TransactionService.Infrastructure.Interfaces;
+using TransactionService.Infrastructure.Factories;
+using TransactionService.Api.Services;
+using Grpc.Net.ClientFactory;
 using Serilog;
 
 // Configure Serilog early to capture startup logs
@@ -37,6 +42,32 @@ builder.Services.AddSwaggerGen(c =>
 // MediatR
 builder.Services.AddMediatR(typeof(GetTransactionHandler).Assembly);
 builder.Services.AddMediatR(typeof(CreateTransactionCommandHandler).Assembly);
+
+// Register domain services
+builder.Services.AddScoped<TransactionService.Domain.Factories.IReceiptFactory, TransactionService.Domain.Factories.ReceiptFactory>();
+
+// Register repositories as singletons for in-memory implementation
+builder.Services.AddSingleton<TransactionService.Domain.Interfaces.ITransactionRepository, TransactionService.Infrastructure.Repositories.TransactionRepository>();
+builder.Services.AddSingleton<TransactionService.Domain.Interfaces.ISignedLinkRepository, TransactionService.Infrastructure.Repositories.SignedLinkRepository>();
+builder.Services.AddSingleton<TransactionService.Domain.Interfaces.IStatementJobRepository, TransactionService.Infrastructure.Repositories.StatementJobRepository>();
+builder.Services.AddSingleton<TransactionService.Domain.Interfaces.IStatementArtifactRepository, TransactionService.Infrastructure.Repositories.StatementArtifactRepository>();
+
+// Register statement services
+builder.Services.AddScoped<TransactionService.Application.Services.IStatementGenerator, TransactionService.Application.Services.PdfStatementGenerator>();
+builder.Services.AddScoped<TransactionService.Application.Services.IStatementGenerator, TransactionService.Application.Services.CsvStatementGenerator>();
+builder.Services.AddScoped<TransactionService.Application.Services.IStatementGenerator, TransactionService.Application.Services.JsonStatementGenerator>();
+builder.Services.AddScoped<TransactionService.Application.Services.IStatementGeneratorFactory, TransactionService.Application.Services.StatementGeneratorFactory>();
+
+// Configure background service and metrics
+builder.Services.Configure<StatementGenerationConfig>(builder.Configuration.GetSection("StatementGeneration"));
+builder.Services.AddSingleton<TransactionService.Application.Services.IStatementJobMetrics, StatementJobMetrics>();
+builder.Services.AddHostedService<StatementGenerationBackgroundService>();
+
+// Infrastructure bindings
+builder.Services.AddSingleton<ITransactionEventPublisherFactory, TransactionEventPublisherFactory>();
+builder.Services.AddSingleton<IDocumentGenerator, PdfDocumentGenerator>();
+builder.Services.AddSingleton<ILinkSigner>(sp => new HmacLinkSigner(builder.Configuration["Signing:Key"] ?? "dev-key"));
+builder.Services.AddSingleton<IInMemoryQueue, InMemoryQueue>();
 
 // Add health checks
 builder.Services.AddHealthChecks();
